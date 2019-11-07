@@ -56,12 +56,19 @@ body {
 }
 .input > #login {
     background: #8F8F8F;
+    
     width:20.3em;
+}
+#login:hover {
+    background: #969696;
 }
 .input > #signup {
     background: #676767;
     border:none;
     width:20.3em;
+}
+#signup:hover {
+    background: #727272;
 }
 .input > p {
     margin-top: 0.2em;

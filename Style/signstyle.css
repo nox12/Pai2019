@@ -1,0 +1,54 @@
+.logo {
+    margin-left: 11em;
+}
+.input {
+    margin-left: 5em;
+}
+#rightin {
+    margin-left: 1em;
+    margin-top: -3.2em;
+}
+
+@media only screen and (max-width:992) {
+    /* doesn't work (ipad) */
+}
+@media screen and (max-width: 600px) { 
+    .container {
+        transform: translateY(3.2em);
+    }
+    .logo {
+        visibility: hidden;
+        transform: translateY(12em);
+        margin-left: -1em;
+    }
+    .logo > img {
+        margin-top:3em;
+        width: 4em;
+    }
+    #napis {
+        font-size: 0.8em;
+        margin-top: -0.9em;
+    }
+    .input > .field {
+        height: 2em;
+        width: 18em;
+        margin-bottom: 4.5em;
+    }
+    .input > p {
+        font: Bold 12px/14px Arial;
+    }
+    #rightin {
+        margin-left: -0.3em;
+        transform: translateY(-18em);
+    }
+    #leftin {
+        margin-left: 1.2em;
+        transform: translateY(10em);
+    }
+    #email,#key {
+        margin-bottom: 0.4em;
+    }
+    #signup {
+        transform: translateX(-1em);
+    }
+}

@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Parknet</title>
-    <link rel="Stylesheet" href="../Style/style.css">
+    <link rel="Stylesheet" href="Style/style.css">
 </head>
 <body>
     <div class="container">
         <div class="logo">
-            <img src="../Style/img/iconcar_park.svg" alt="logo"> 
+            <img src="Style/img/iconcar_park.svg" alt="logo"> 
             <text id="napis" ><strong>parknet</strong></text>
         </div>
         <div class="input">

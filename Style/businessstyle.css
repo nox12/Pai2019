@@ -1,0 +1,14 @@
+.container {
+    flex-direction: row;
+}
+.opcje {
+    background: #8D8D8D;
+    width: 5em;
+}
+.dane {
+    height: inherit;
+    width: 75em;
+    background: #EEEEEE;
+    display: flex;
+    flex-direction: column;
+}

@@ -9,8 +9,14 @@
     margin-top: -3.2em;
 }
 
-@media only screen and (max-width:992) {
-    /* doesn't work (ipad) */
+@media only screen and (max-width: 992px) {
+    .container {
+        flex-direction: row;
+        transform: translateX(-10em);
+    }
+    .logo {
+        visibility: hidden;
+    }
 }
 @media screen and (max-width: 600px) { 
     .container {

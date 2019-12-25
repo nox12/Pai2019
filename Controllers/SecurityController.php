@@ -1,8 +1,84 @@
 <?php
-require_once "Appcontroller.php";
+require_once "AppController.php";
+require_once "ParkingsController.php";
+require_once __DIR__.'//..//Model//User.php';
+require_once __DIR__.'//..//Repository//UserRepository.php';
 
 class SecurityController extends AppController {
+    
     public function login() {
-        $this->render("index");
+        $userRepository = new UserRepository();
+
+        if ($this->isPost()) {
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+
+            if($email !== ''){
+                $user = $userRepository->getUser($email);
+
+                if ($user->getEmail() !== $email) {
+                    $this->render('login', ['messages' => ['Wrong Email!']]);
+                    return;
+                }
+                $salt = $user->getSalt();
+                $password = password_verify($password.$salt,$user->getPassword());
+                if (!$password) {
+                    $this->render('login', ['messages' => ['Wrong password!']]);
+                    return;
+                }
+
+                $_SESSION["id"] = $user->getEmail();
+                $_SESSION["role"] = $user->getRole();
+
+                $url = "http://$_SERVER[HTTP_HOST]/parknet";
+                header("Location: {$url}?page=parkings");
+                return;
+            }
+        }
+        $this->render("login");
+    }
+    public function signup(){
+        $userRepository = new UserRepository();
+        if($this->isPost()) {
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $confirmpassword = $_POST['confirmpassword'];
+            $name = $_POST['name'];
+            $surname = $_POST['surname'];
+            $company = $_POST['company'];
+            $address = $_POST['address'];
+            $city = $_POST['city'];
+            $zipcode = $_POST['zipcode'];
+            $key = $_POST['key'];
+
+            $user = $userRepository->getUser($email);
+            //check if user exists
+            if($user !== NULL){
+                $this->render('signup', ['messages' => ['A user with that email address already exists']]);
+                return;
+            }
+            if($password !== $confirmpassword){
+                $this->render('signup', ['messages' => ['Your password and confirmation password do not match']]);
+                return;
+            }
+
+            $salt = random_int( 10000000 , 99999999 );
+            $password = password_hash($password.$salt, PASSWORD_BCRYPT); //hash password
+
+            $userRepository->createUser($email, $password, $salt, $name, $surname, $company, $address, $city, $zipcode,
+             $key, "user");
+            
+            $url = "http://$_SERVER[HTTP_HOST]/parknet";
+            header("Location: {$url}?page=login");
+        }
+        $this->render("signup");
+    }
+
+    public function logout()
+    {
+        session_unset();
+        session_destroy();
+
+        $this->render('login', ['messages' => ['You have been successfully logged out!']]);
     }
 }

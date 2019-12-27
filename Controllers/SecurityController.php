@@ -16,6 +16,10 @@ class SecurityController extends AppController {
             if($email !== ''){
                 $user = $userRepository->getUser($email);
 
+                if ($user === NULL) {
+                    $this->render('login', ['messages' => ['You need to sign up first']]);
+                    return;
+                }
                 if ($user->getEmail() !== $email) {
                     $this->render('login', ['messages' => ['Wrong Email!']]);
                     return;
@@ -26,8 +30,9 @@ class SecurityController extends AppController {
                     $this->render('login', ['messages' => ['Wrong password!']]);
                     return;
                 }
+                $user->nullPass();
 
-                $_SESSION["id"] = $user->getEmail();
+                $_SESSION["id"] = $user->getId();
                 $_SESSION["role"] = $user->getRole();
 
                 $url = "http://$_SERVER[HTTP_HOST]/parknet";

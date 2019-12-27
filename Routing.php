@@ -25,6 +25,18 @@ class Routing {
                 'controller' => 'ParkingsController',
                 'action' => "showParkings"
             ],
+            "newParking" => [
+                'controller' => 'ParkingsController',
+                'action' => "newParking"
+            ],
+            "parkinginfo" => [
+                'controller' => 'ParkingsController',
+                'action' => "parkinginfo"
+            ],
+            "deleteParking" => [
+                'controller' => 'ParkingsController',
+                'action' => "deleteParking"
+            ],
             "employees" => [
                 'controller' => "EmployeesController",
                 'action' => "showEmployees"

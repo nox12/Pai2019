@@ -6,7 +6,7 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100%;
+    height: 96%;
 }
 .menu {
     background: #8A8A8A;
@@ -66,6 +66,7 @@ body {
     justify-content: center;
     margin-top: 1em;
     height: inherit;
+    overflow: auto;
 }
 #addnew {
     border-radius: 4px;
@@ -100,6 +101,7 @@ body {
     height: 18em;
     display: flex;
     flex-direction: column;
+    margin-bottom: 1em;
 }
 .nazwa {
     margin-left: 4em;

@@ -20,11 +20,14 @@
         </button>
     </div>
     <div class="container">
-        <button id="addnew" style="border: 2px solid #8F8F8F">Add New</button>
+        <button id="addnew" style="border: 2px solid #8F8F8F" onClick="location.href='?page=newParking'">Add New</button>
         <div class="list">
         <?php foreach($parkings as $parking): ?>
             <div class="parking">
+                <form action="?page=deleteParking" method="POST" id="deleteParkingform">
+                <input id="id_parking2" name="id_parking" type="hidden" value=<?= $parking->getId() ?>>
                 <button id="delete" style="border: 2px solid #5E5E5E; color:white">Delete</button>
+                </form>
                 <div class ="nazwa">
                     <text id="name"><strong><?= $parking->getName() ?></strong></text>
                     <text id="address"><?= $parking->getAddress().", ".$parking->getCity() ?></text>
@@ -32,7 +35,10 @@
                 <div class="opis">
                     <text-field id="description"><?= $parking->getDescription() ?></text-field>
                 </div>
-                <button id="next" style="border: 2px solid #8F8F8F"><img src="Style/img/arrow.svg"></button>
+                <form action="?page=newParking" method="POST" id="newParkingform">
+                <input id="id_parking" name="id_parking" type="hidden" value=<?= $parking->getId() ?>>
+                <button id="next" type="submit" style="border: 2px solid #8F8F8F"><img src="Style/img/arrow.svg"></button>
+                </form>
             </div>
         <?php endforeach ?>
         </div>

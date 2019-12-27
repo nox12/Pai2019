@@ -1,7 +1,72 @@
+.container {
+    overflow: visible;
+}
 .parking {
     height: inherit;
     width: 52em;
 }
+#parkingform {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 6em;
+    padding-top: 2em;
+}
+.field {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    height: 2em;
+    width: 20em;
+    background: #F1F9FF;
+    border: 2px solid #8D8D8D;
+    border-radius: 10px;
+    opacity: 1;
+}
+
+.manyfields {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+.smallfield >.field {
+    width: 8em;
+    margin-right: 2em;
+}
+.smallfield >p {
+    margin-top: 0.2em;
+    margin-bottom: 0.1em;
+    text-align: left;
+    font: Bold 14px/16px Arial;
+    letter-spacing: 0;
+    color: #737373;
+}
+#parkingform > p {
+    margin-top: 0.2em;
+    margin-bottom: 0.1em;
+    text-align: left;
+    font: Bold 14px/16px Arial;
+    letter-spacing: 0;
+    color: #737373;
+}
+#description {
+    height: 5em;
+    width: 30em;
+    resize: none;
+    text-align: left;
+}
+#save {
+    margin-top: 2em;
+    width: 6em;
+    height: 2.2em;
+    justify-content: center;
+    margin-left: 40em;
+    background: #8F8F8F;
+    border-radius: 4px;
+}
+#save:hover {
+    background: #9b9b9b;
+}
+
 .top {
     display:flex;
     flex-direction: row;
@@ -16,6 +81,15 @@
     margin-top:1em;
 }
 
+@media only screen and (max-width: 992px) {
+    .parking {
+        width: inherit;
+    }
+    .nazwa {
+        margin-left: 0;
+        margin-right: 5em;
+    }
+}
 @media only screen and (max-width: 600px) {
     .parking {
         width: inherit;
@@ -23,5 +97,18 @@
     .nazwa {
         margin-left: 0;
         margin-right: 5em;
+    }
+    #parkingform {
+        padding-left: 1em;
+    }
+    .smallfield >.field {
+        width: 6em;
+        margin-right: 1em;
+    }
+    #description {
+        width: 24em;
+    }
+    #save {
+        margin-left: 15em;
     }
 }

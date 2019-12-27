@@ -1,6 +1,7 @@
 <?php
 
 class User {
+    private $id;
     private $email;
     private $password;
     private $salt;
@@ -13,8 +14,9 @@ class User {
     private $productKey;
     private $role;
 
-    public function __construct(string $email,string $password,string $salt, string $name, string $surname, string $company=null,
+    public function __construct(int $id,string $email,string $password,string $salt, string $name, string $surname, string $company=null,
      string $address, string $city, string $zipCode, string $productKey, string $role ){
+         $this->id = $id;
         $this->email = $email;
         $this->password = $password;
         $this->salt = $salt;
@@ -40,7 +42,10 @@ class User {
     public function getRole():string {
         return $this->role;
     }
-    public function nullpass() {
+    public function getId():int {
+        return $this->id;
+    }
+    public function nullPass() {
         $this->password = '';
         $this->salt = '';
     }

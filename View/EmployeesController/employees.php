@@ -13,7 +13,12 @@
         <button class="menubutton" id="parkings" style="border: 2px solid #8A8A8A" onClick="location.href='?page=parkings'">PARKINGS</button>
         <button class="menubutton" id="employees" style="border: 2px solid #CCCCCC" onClick="location.href='?page=employees'">EMPLOYEES</button>
         <button class="menubutton" id="business" style="border: 2px solid #8A8A8A" onClick="location.href='?page=business'">BUSINESS</button>
-        <button class="menubutton" id="profile" style="border: 2px solid #8A8A8A"><img src="Style/img/profile.svg"></button>
+        <button class="menubutton" id="profile" style="border: 2px solid #8A8A8A"><img src="Style/img/profile.svg">
+            <div id="dropdown">
+            <a href="#">Settings</a>
+            <a onClick="location.href='?page=logout'">Log Out</a>
+            </div>
+        </button>
     </div>
     <div class="container">
         <button id="addnew" style="border: 2px solid #8F8F8F">Add New</button>

@@ -47,7 +47,7 @@ body {
   }
   
   /* Change color of dropdown links on hover */
-  #dropdown a:hover {background-color: #eeeeee}
+  #dropdown a:hover {background-color: #eeeeee; color:#8A8A8A;}
   
   /* Show the dropdown menu on hover */
   #profile:hover #dropdown {

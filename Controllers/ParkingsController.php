@@ -29,6 +29,7 @@ class ParkingsController extends AppController {
 
             $data = $parkingRepository->getParking($id);
             $this->render("parkinginfo",["parking"=>$data]);
+            return;
         }
         $this->render("parkinginfo",["parking"=>NULL]);
     }

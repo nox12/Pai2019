@@ -3,6 +3,7 @@ require_once "Controllers/SecurityController.php";
 require_once "Controllers/ParkingsController.php";
 require_once "Controllers/EmployeesController.php";
 require_once "Controllers/BusinessController.php";
+require_once "Controllers/BookingController.php";
 
 class Routing {
     private $routes = [];
@@ -36,6 +37,26 @@ class Routing {
             "deleteParking" => [
                 'controller' => 'ParkingsController',
                 'action' => "deleteParking"
+            ],
+            "booking" => [
+                'controller' => 'BookingController',
+                'action' => "booking"
+            ],
+            "newBooking" => [
+                'controller' => 'BookingController',
+                'action' => "newBooking"
+            ],
+            "showBooking" => [
+                'controller' => 'BookingController',
+                'action' => "showBooking"
+            ],
+            "saveBooking" => [
+                'controller' => 'BookingController',
+                'action' => "saveBooking"
+            ],
+            "deleteBooking" => [
+                'controller' => 'BookingController',
+                'action' => "deleteBooking"
             ],
             "employees" => [
                 'controller' => "EmployeesController",

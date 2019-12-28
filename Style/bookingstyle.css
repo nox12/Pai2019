@@ -1,0 +1,91 @@
+.parking {
+    height: inherit;
+    width: 52em;
+}
+.przyciski {
+    display: flex;
+    flex-direction: row;
+}
+.menusub {
+    display:flex;
+    flex-direction: row;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+.top {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top:1em;
+}
+#selectSub {
+    margin-left: 6em;
+}
+#new {
+    border-radius: 4px;
+    background: #8F8F8F;
+    color: white;
+    font-size: 14px;
+    height: 2em;
+    width: 8em;
+    margin-left: 2em;
+    margin-top: 0.4em;
+    font: Bold 14px/10px Arial;
+}
+#new:hover {
+    background: #9b9b9b;
+}
+#delete {
+    background: #676767;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-top: 0.4em;
+    margin-left: 5em;
+    width: 8em;
+}
+#delete:hover {
+    background: #777777;
+}
+#saveBookingform {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 6em;
+    padding-top: 2em;
+}
+#saveBookingform > p {
+    margin-top: 0.2em;
+    margin-bottom: 0.1em;
+    text-align: left;
+    font: Bold 14px/16px Arial;
+    letter-spacing: 0;
+    color: #737373;
+}
+#save {
+    margin-left: 38em;
+}
+@media only screen and (max-width: 600px) {
+    #saveBookingform {
+        padding-left: 1em;
+    }
+    #selectSub {
+        margin-left: 0.1em;
+        max-width: 12em;
+    }
+    #new {
+        width: 6em;
+        margin-left: 1em;
+        margin-top: 0.4em;
+    }
+    #delete {
+        margin-left: 1em;
+        width: 4.5em;
+    }
+    #save {
+        margin-left: 18em;
+    }
+    .top {
+        justify-content: left;
+        margin-left: 1em;
+    }
+}

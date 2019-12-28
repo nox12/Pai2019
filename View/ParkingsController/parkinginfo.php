@@ -31,8 +31,16 @@
                     <text id="address"><?= $address1 ?></text>
                 </div>
                 <div class="przyciski">
-                    <button id="info" style="border: 2px solid #CCCCCC; border-radius: 4px">info</button>
-                    <button id="booking" style="border: 2px solid #CCCCCC; border-radius: 4px">booking</button>
+                    <form action="?page=newParking" method="POST" id="newParkingform">
+                        <?php $parking !== NULL ? $id=$parking->getId() : $id =NULL ?>
+                        <input id="id_parking" name="id_parking" type="hidden" value=<?= $id ?>>
+                        <button id="info" type="submit" style="<?=($id === NULL || $id ==="") ? "border: 2px solid #CCCCCC; border-radius: 4px;display:none" : "border: 2px solid #CCCCCC; border-radius: 4px;" ?>">info</button>
+                    </form>
+                    <form action="?page=booking" method="POST" id="bookingform">
+                        <?php $parking !== NULL ? $id=$parking->getId() : $id =NULL ?>
+                        <input id="id_parking" name="id_parking" type="hidden" value=<?= $id ?>>
+                        <button id="booking" type="submit" style="<?=($id === NULL || $id ==="") ? "border: 2px solid #CCCCCC; border-radius: 4px;display:none" : "border: 2px solid #CCCCCC; border-radius: 4px;" ?>">booking</button>
+                    </form>
                 </div>
             </div> 
             <text style="margin-left:1em;margin-right:1em;color:#CCCCCC"><hr></text>

@@ -5,6 +5,13 @@
     height: inherit;
     width: 52em;
 }
+.przyciski {
+    display: flex;
+    flex-direction: row;
+}
+#info:hover, #booking:hover {
+    background: #8F8F8F;
+}
 #parkingform {
     display: flex;
     flex-direction: column;
@@ -53,6 +60,7 @@
     width: 30em;
     resize: none;
     text-align: left;
+    font: 12px Arial;
 }
 #save {
     margin-top: 2em;

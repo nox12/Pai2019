@@ -21,23 +21,30 @@
         </button>
     </div>
     <div class="container">
-        <button id="addnew" style="border: 2px solid #8F8F8F">Add New</button>
+        <button id="addnew" style="border: 2px solid #8F8F8F" onClick="location.href='?page=newEmployee'">Add New</button>
         <div class="list">
-            <div class="employee">
-                <img src="Style/img/person.png" alt="photo">
-                <div class="info">
-                    <button id="delete" style="border: 2px solid #5E5E5E; color:white">Delete</button>
-                    <div class ="nazwa">
-                        <text id="name"><strong>John Wick</strong></text>
-                        <text id="position">Pracownik</text>
+            <?php foreach($employees as $emp): ?>
+                <div class="employee">
+                    <img src="Style/img/person.png" alt="photo">
+                    <div class="info">
+                        <form action="?page=deleteEmployee" method="POST" id="deleteEmployeeform">
+                        <input id="id_employee2" name="id_employee" type="hidden" value=<?= $emp->getId() ?>>
+                        <button id="delete" style="border: 2px solid #5E5E5E; color:white">Delete</button>
+                        </form>
+                        <div class ="nazwa">
+                            <text id="name"><strong><?= $emp->getName()." ".$emp->getSurname() ?></strong></text>
+                            <text id="position"><?= $emp->getPosition() ?></text>
+                        </div>
+                        <div class="opis">
+                            <text-field id="description"><?= $emp->getDescription() ?></text-field>
+                        </div>
+                        <form action="?page=newEmployee" method="POST" id="newEmployeeform">
+                        <input id="id_employee" name="id_employee" type="hidden" value=<?= $emp->getId() ?>>
+                        <button id="next" style="border: 2px solid #8F8F8F"><img src="Style/img/arrow.svg"></button>
+                        </form>
                     </div>
-                    <div class="opis">
-                        <text-field id="description">Culpa qui officia deserunt mollit anim id est laborum. 
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptartem accusantium doloremque laudantium.</text-field>
-                    </div>
-                    <button id="next" style="border: 2px solid #8F8F8F"><img src="Style/img/arrow.svg"></button>
                 </div>
-            </div>
+            <?php endforeach ?>
         </div>
         <div class="searchdiv">
             <input class="searchinput">

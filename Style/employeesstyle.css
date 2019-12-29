@@ -1,8 +1,12 @@
+.parking {
+    overflow: auto;
+}
 .employee {
     background: #EEEEEE;
     height: 16em;
     display: flex;
     flex-direction: row;
+    margin-bottom: 1em;
 }
 .employee > img {
     margin-top:3em;
@@ -21,7 +25,9 @@
     margin-left: 30em;
     margin-top: 0;
 }
-
+#employeeform {
+    margin-left: 1em;
+}
 @media only screen and (max-width: 992px){
     .info {
         width: 25em;

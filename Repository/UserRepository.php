@@ -18,29 +18,54 @@ class UserRepository extends Repository {
         if($data == false) {
             return null;
         }
+        if($data['role'] === 'user') {
+            $stmt = $this->database->connect()->prepare('
+                SELECT * FROM user WHERE id_data = :data
+            ');
+            $stmt->bindParam(':data', $data['id_data'], PDO::PARAM_STR);
+            $stmt->execute();
 
-        $stmt = $this->database->connect()->prepare('
-            SELECT * FROM user WHERE id_data = :data
-        ');
-        $stmt->bindParam(':data', $data['id_data'], PDO::PARAM_STR);
-        $stmt->execute();
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+            return new User(
+                $user['id_user'],
+                $data['email'],
+                $data['hash'],
+                $data['salt'],
+                $data['name'],
+                $data['surname'],
+                $user['company'],
+                $data['address'],
+                $data['city'],
+                $data['zip_code'],
+                $user['product_key'],
+                $data['role']
+            );
+        }
+        if($data['role'] === 'employee') {
+            $stmt = $this->database->connect()->prepare('
+                SELECT * FROM employee WHERE id_data = :data
+            ');
+            $stmt->bindParam(':data', $data['id_data'], PDO::PARAM_STR);
+            $stmt->execute();
 
-        return new User(
-            $user['id_user'],
-            $data['email'],
-            $data['hash'],
-            $data['salt'],
-            $data['name'],
-            $data['surname'],
-            $user['company'],
-            $data['address'],
-            $data['city'],
-            $data['zip_code'],
-            $user['product_key'],
-            $data['role']
-        );
+            $emp = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            return new User(
+                $emp['id_user'],
+                $data['email'],
+                $data['hash'],
+                $data['salt'],
+                $data['name'],
+                $data['surname'],
+                "",
+                $data['address'],
+                $data['city'],
+                $data['zip_code'],
+                "",
+                "employee"
+            );
+        }
     }
 
     public function createUser(string $email,string $hash,string $salt, string $name, string $surname, string $company=null,

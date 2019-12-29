@@ -62,6 +62,18 @@ class Routing {
                 'controller' => "EmployeesController",
                 'action' => "showEmployees"
             ],
+            "newEmployee" => [
+                'controller' => 'EmployeesController',
+                'action' => "newEmployee"
+            ],
+            "employeeinfo" => [
+                'controller' => 'EmployeesController',
+                'action' => "employeeinfo"
+            ],
+            "deleteEmployee" => [
+                'controller' => 'EmployeesController',
+                'action' => "deleteEmployee"
+            ],
             "business" => [
                 'controller' => "BusinessController",
                 'action' => "showBusiness"

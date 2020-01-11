@@ -22,11 +22,50 @@
     </div>
     <div class="container">
         <div class="opcje">
-
+            <button class="opcjeButton" style="border: 2px solid #8D8D8D" onClick="earn()">Earnings</button>
+            <button class="opcjeButton" style="border: 2px solid #8D8D8D" onClick="park()">Parkings</button>
         </div>
         <div class="dane">
-
+            <img id="stonks" src="Style/img/stonks.png" alt="" style="width:30em; margin-left:18em; margin-top:10em;">
+            <table id="table" style="display:none; margin-left:25em; margin-top:5em;">
+                <tr>
+                    <th>No.</th>
+                    <th></th>
+                    <th>Name</th>
+                    <th></th>
+                    <th>Total Earnings</th>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <th></th>
+                    <th>Super Parking</th>
+                    <th></th>
+                    <th>14 356</th>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <th></th>
+                    <th>Test Parking</th>
+                    <th></th>
+                    <th>9 865</th>
+                </tr>
+            </table>
         </div>
     </div>
+
+    <script>
+    function earn() {
+        var a = document.getElementById("stonks");
+        a.style.display="flex";
+        a= document.getElementById("table");
+        a.style.display="none";
+    }
+    function park() {
+        var a = document.getElementById("stonks");
+        a.style.display="none";
+        a= document.getElementById("table");
+        a.style.display="flex";
+    }
+    </script>
 </body>
 </html>

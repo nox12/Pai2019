@@ -4,6 +4,10 @@
 .opcje {
     background: #8D8D8D;
     width: 5em;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .dane {
     height: inherit;
@@ -11,4 +15,14 @@
     background: #EEEEEE;
     display: flex;
     flex-direction: column;
+}
+.opcjeButton {
+    color: white;
+    background: #8D8D8D;
+    margin-top:4em;
+    margin-bottom:4em;
+}
+
+.opcjeButton:hover {
+    background: rgb(165, 165, 165);
 }

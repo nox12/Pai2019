@@ -22,7 +22,7 @@
     </div>
     <div class="container">
         <button id="addnew" style="border: 2px solid #8F8F8F" onClick="location.href='?page=newEmployee'">Add New</button>
-        <div class="list">
+        <div class="list" id="list">
             <?php foreach($employees as $emp): ?>
                 <div class="employee">
                     <img src="Style/img/person.png" alt="photo">
@@ -47,9 +47,28 @@
             <?php endforeach ?>
         </div>
         <div class="searchdiv">
-            <input class="searchinput">
-            <button class="search"><img src="Style/img/Search.svg"></button>
+            <input class="searchinput" id="input">
+            <button class="search" onClick="searchF()"><img src="Style/img/Search.svg"></button>
         </div>
     </div>
+
+    <script>
+    function searchF() {
+        var input, filter, list,p,i,a,txtValue;
+        input = document.getElementById("input");
+        filter = input.value.toUpperCase();
+        list = document.getElementById("list");
+        p = list.getElementsByClassName("employee");
+        for (i = 0; i < p.length; i++) {
+            a= p[i];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                p[i].style.display = "flex";
+            } else {
+                p[i].style.display = "none";
+            }
+        }
+    }
+    </script>
 </body>
 </html>

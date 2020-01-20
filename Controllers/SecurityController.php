@@ -86,4 +86,38 @@ class SecurityController extends AppController {
 
         $this->render('login', ['messages' => ['You have been successfully logged out!']]);
     }
+    //shows setting page or updates data
+    public function settings() {
+        if(!isset($_SESSION['id']) and !isset($_SESSION['role'])) {
+            $temp = new SecurityController();
+            $temp->render("login");
+            return;
+        }
+        if($_SESSION['role'] === 'employee'){
+            $url = "http://$_SERVER[HTTP_HOST]/parknet";
+            header("Location: {$url}?page=parkings");
+            return;
+        }
+
+        $userRepository = new UserRepository();
+        //updates data
+        if($this->isPost()) {
+            $email = $_POST['email'];
+            $name = $_POST['name'];
+            $surname = $_POST['surname'];
+            $company = $_POST['company'];
+            $address = $_POST['address'];
+            $city = $_POST['city'];
+            $zip = $_POST['zip_code'];
+
+            $userRepository->updateUser($_SESSION['id'],$email, $name, $surname, $address, $city,$zip,$company);
+            
+            $url = "http://$_SERVER[HTTP_HOST]/parknet";
+            header("Location: {$url}?page=settings");
+        }
+        //shows page
+        $user = $userRepository->getUserById($_SESSION['id']);
+
+        $this->render("settings", ['user' =>$user]);
+    }
 }

@@ -7,6 +7,7 @@ require_once __DIR__.'//..//Repository//ParkingRepository.php';
 require_once __DIR__.'//..//Repository//SubscriptionRepository.php';
 
 class BookingController extends AppController {
+    //shows "booking" page
     public function booking() {
         if(!isset($_SESSION['id']) and !isset($_SESSION['role'])) {
             $temp = new SecurityController();
@@ -26,7 +27,7 @@ class BookingController extends AppController {
         $url = "http://$_SERVER[HTTP_HOST]/parknet";
         header("Location: {$url}?page=parkings");
     }
-
+    //shows page for creating new parking subscription
     public function newBooking() {
         if(!isset($_SESSION['id']) and !isset($_SESSION['role'])) {
             $temp = new SecurityController();
@@ -45,7 +46,7 @@ class BookingController extends AppController {
         $url = "http://$_SERVER[HTTP_HOST]/parknet";
         header("Location: {$url}?page=parkings");
     }
-
+    //shows booking info
     public function showBooking() {
         if(!isset($_SESSION['id']) and !isset($_SESSION['role'])) {
             $temp = new SecurityController();
@@ -66,7 +67,7 @@ class BookingController extends AppController {
         $url = "http://$_SERVER[HTTP_HOST]/parknet";
         header("Location: {$url}?page=parkings");
     }
-
+    //updates or creates new subscription
     public function saveBooking() {
         if(!isset($_SESSION['id']) and !isset($_SESSION['role'])) {
             $temp = new SecurityController();
@@ -97,7 +98,7 @@ class BookingController extends AppController {
         $url = "http://$_SERVER[HTTP_HOST]/parknet";
         header("Location: {$url}?page=parkings");
     }
-
+    //deletes subscription
     public function deleteBooking() {
         if(!isset($_SESSION['id']) and !isset($_SESSION['role'])) {
             $temp = new SecurityController();

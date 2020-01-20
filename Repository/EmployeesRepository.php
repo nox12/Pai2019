@@ -3,6 +3,7 @@ require_once "Repository.php";
 require_once __DIR__.'//..//Model//Employee.php';
 
 class EmployeesRepository extends Repository {
+    //gets all employees data from DB
     public function getEmployees(string $id_user): array {
         $employees = [];
 
@@ -45,7 +46,9 @@ class EmployeesRepository extends Repository {
 
         return $employees;
     }
-
+    /* gets employee data from DB by @id
+    * @param id is id of employee
+    */ 
     public function getEmployee(int $id): Employee {
         $stmt = $this->database->connect()->prepare('
             SELECT * FROM employee WHERE id_employee = :id
@@ -79,7 +82,7 @@ class EmployeesRepository extends Repository {
             "employee" //role
             );
     }
-
+    //checks if email exists
     public function checkEmail(string $email): ?string {
         $stmt = $this->database->connect()->prepare('
             SELECT * FROM data WHERE email = :email
@@ -93,7 +96,7 @@ class EmployeesRepository extends Repository {
         }
         return "exists";
     }
-
+    //adds new employee to DB
     public function createEmployee(string $id,string $email,string $hash,string $salt,string $name,string $surname,
     string $address,string $city,string $zip,string $position,string $description=null,string $role){
         //create data
@@ -130,7 +133,7 @@ class EmployeesRepository extends Repository {
         $stmt->bindParam(':description', $description, PDO::PARAM_STR);
         $stmt->execute();
     }
-
+    //updates data in DB
     public function updateEmployee(string $id,string $email,string $name,string $surname,
     string $address,string $city,string $zip,string $position,string $description) {
         $stmt = $this->database->connect()->prepare('
@@ -144,9 +147,9 @@ class EmployeesRepository extends Repository {
 
         //get data id
         $stmt = $this->database->connect()->prepare('
-            SELECT id_data FROM data WHERE email = :email
+            SELECT id_data FROM employee WHERE id_employee = :id
         ');
-        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->bindParam(':id', $id, PDO::PARAM_STR);
         $stmt->execute();
 
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -166,7 +169,7 @@ class EmployeesRepository extends Repository {
         $stmt->execute();
 
     }
-
+    //deletes from DB
     public function deleteEmployee(int $id) {
         $stmt = $this->database->connect()->prepare('
             SELECT * FROM employee WHERE id_employee = :id

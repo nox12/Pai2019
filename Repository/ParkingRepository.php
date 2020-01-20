@@ -3,6 +3,7 @@ require_once "Repository.php";
 require_once __DIR__.'//..//Model//Parking.php';
 
 class ParkingRepository extends Repository{
+    //gets all parkings data from DB
     public function getParkings(string $id_user): array {
         $parkings = [];
 
@@ -29,7 +30,9 @@ class ParkingRepository extends Repository{
 
         return $parkings;
     }
-
+    /* gets parking data from DB by @id
+    * @param id is id of parking
+    */ 
     public function getParking(int $id): Parking {
         $stmt = $this->database->connect()->prepare('
             SELECT * FROM parking WHERE id_parking = :id
@@ -51,7 +54,7 @@ class ParkingRepository extends Repository{
             $data['description']
         );
     }
-
+    //adds new parking to DB
     public function createParking(string $name, string $tags=null,int $spaces,int $hours,float $price,
     string $address,string $city,string $description=null) {
         $stmt = $this->database->connect()->prepare('
@@ -69,7 +72,7 @@ class ParkingRepository extends Repository{
         $stmt->bindParam(':description', $description, PDO::PARAM_STR);
         $stmt->execute();
     }
-
+    //updates data in DB
     public function updateParking(int $id, string $name, string $tags=null,int $spaces,int $hours,float $price,
     string $address,string $city,string $description=null) {
         $stmt = $this->database->connect()->prepare('
@@ -88,7 +91,7 @@ class ParkingRepository extends Repository{
         $stmt->bindParam(':description', $description, PDO::PARAM_STR);
         $stmt->execute();
     }
-
+    //deletes from DB
     public function deleteParking(int $id) {
         $stmt = $this->database->connect()->prepare('
             DELETE FROM `parking` WHERE `parking`.`id_parking` = :id

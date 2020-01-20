@@ -14,6 +14,9 @@ class AppController {
     protected function isPost():bool {
         return $this->request === "POST";
     }
+    /*
+    * function that render needed page
+    */
     protected function render(string $template=null, array $variables =[]) {
         $templatepath = $template ? dirname(__DIR__)."\View\\".get_class($this)."\\".$template.".php" : "";
         $output = "File not found";

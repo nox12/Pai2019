@@ -15,7 +15,7 @@
         <button class="menubutton" id="business" style="border: 2px solid #CCCCCC" onClick="location.href='?page=business'">BUSINESS</button>
         <button class="menubutton" id="profile" style="border: 2px solid #8A8A8A"><img src="Style/img/profile.svg">
             <div id="dropdown">
-            <a href="#">Settings</a>
+            <a onClick="location.href='?page=settings'">Settings</a>
             <a onClick="location.href='?page=logout'">Log Out</a>
             </div>
         </button>
@@ -26,8 +26,8 @@
             <button class="opcjeButton" style="border: 2px solid #8D8D8D" onClick="park()">Parkings</button>
         </div>
         <div class="dane">
-            <img id="stonks" src="Style/img/stonks.png" alt="" style="width:30em; margin-left:18em; margin-top:10em;">
-            <table id="table" style="display:none; margin-left:25em; margin-top:5em;">
+            <img id="stonks" src="Style/img/stonks.png" alt="">
+            <table id="table">
                 <tr>
                     <th>No.</th>
                     <th></th>
@@ -48,6 +48,13 @@
                     <th>Test Parking</th>
                     <th></th>
                     <th>9 865</th>
+                </tr>
+                <tr>
+                    <th>3</th>
+                    <th></th>
+                    <th>Inny Parking</th>
+                    <th></th>
+                    <th>1 658</th>
                 </tr>
             </table>
         </div>

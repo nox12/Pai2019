@@ -6,6 +6,7 @@ require_once "Controllers/BusinessController.php";
 require_once "Controllers/BookingController.php";
 
 class Routing {
+    //array for request controll
     private $routes = [];
 
     public function __construct(){
@@ -21,6 +22,10 @@ class Routing {
             "logout" => [
                 'controller' => 'SecurityController',
                 'action' => 'logout'
+            ],
+            "settings" => [
+                'controller' => 'SecurityController',
+                'action' => 'settings'
             ],
             "parkings" => [
                 'controller' => 'ParkingsController',
@@ -80,7 +85,7 @@ class Routing {
             ]
         ];
     }
-
+    //function that control reguests
     public function run(){
         $page = isset($_GET["page"]) ? $_GET["page"]:"login";
 

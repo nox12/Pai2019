@@ -20,7 +20,7 @@ class EmployeesController extends AppController {
         $data = $empRepository->getEmployees($_SESSION['id']);
         $this->render("employees",["employees"=>$data]);
     }
-
+    //shows page for creating or updating data
     public function newEmployee(){
         if(!isset($_SESSION['id']) and !isset($_SESSION['role'])) {
             $temp = new SecurityController();
@@ -32,6 +32,7 @@ class EmployeesController extends AppController {
             header("Location: {$url}?page=parkings");
             return;
         }
+        //for update
         if ($this->isPost()) {
             $empRepository = new EmployeesRepository();
 
@@ -41,9 +42,10 @@ class EmployeesController extends AppController {
             $this->render("employeesinfo",["employee"=>$data]);
             return;
         }
+        //for new one
         $this->render("employeesinfo",["employee"=>NULL]);
     }
-
+    //updates or creates new employee
     public function employeeinfo(){
         if(!isset($_SESSION['id']) and !isset($_SESSION['role'])) {
             $temp = new SecurityController();

@@ -49,4 +49,22 @@ class User {
         $this->password = '';
         $this->salt = '';
     }
+    public function getName():string {
+        return $this->name;
+    }
+    public function getSurname():string {
+        return $this->surname;
+    }
+    public function getAddress():string {
+        return $this->address;
+    }
+    public function getCity():string {
+        return $this->city;
+    }
+    public function getZip():string {
+        return $this->zipCode;
+    }
+    public function getCompany():string {
+        return $this->company;
+    }
 }

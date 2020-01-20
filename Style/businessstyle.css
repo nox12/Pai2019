@@ -26,3 +26,45 @@
 .opcjeButton:hover {
     background: rgb(165, 165, 165);
 }
+#stonks {
+    width:30em; 
+    margin-left:18em; 
+    margin-top:10em;
+}
+#table {
+    display:none; 
+    margin-left:25em; 
+    margin-top:5em;
+}
+@media only screen and (max-width: 992px){
+    #stonks {
+        margin-left:6em; 
+    }
+    #table {
+        margin-left:14em; 
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        flex-direction: column;
+    }
+    .opcje {
+        width: auto;
+        height: 2em;
+        flex-direction: row;
+        
+    }
+    .opcjeButton {
+        margin-top: 0.5em;
+    }
+    #stonks {
+        width:20em; 
+        margin-left:1em; 
+        margin-top:1em;
+    }
+    #table {
+        margin-left:3em; 
+        margin-top:3em;
+    }
+}

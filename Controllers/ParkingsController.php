@@ -15,7 +15,7 @@ class ParkingsController extends AppController {
         $data = $parkingRepository->getParkings($_SESSION['id']);
         $this->render("parkings",["parkings"=>$data]);
     }
-
+    //shows page for creating or updating data
     public function newParking(){
         if(!isset($_SESSION['id']) and !isset($_SESSION['role'])) {
             $temp = new SecurityController();
@@ -33,7 +33,7 @@ class ParkingsController extends AppController {
         }
         $this->render("parkinginfo",["parking"=>NULL]);
     }
-
+    //updates or creates new parking
     public function parkinginfo(){
         if(!isset($_SESSION['id']) and !isset($_SESSION['role'])) {
             $temp = new SecurityController();

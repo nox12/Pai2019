@@ -28,6 +28,10 @@
 #employeeform {
     margin-left: 1em;
 }
+#settingsform {
+    margin-left: 1em;
+}
+
 @media only screen and (max-width: 992px){
     .info {
         width: 25em;
